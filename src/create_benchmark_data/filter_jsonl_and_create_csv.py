@@ -20,7 +20,7 @@ def create_csv(file_paths):
             with jsonlines.open(file) as reader:
                 for obj in reader:
                     if obj['answer'] == "accept":
-                        image_name = obj['id']
+                        image_name = f"{obj['id']}.jpg"
                         if image_name in ids:
                             continue
                         image_url = obj['image'].split("?")[0]
@@ -32,7 +32,7 @@ def create_csv(file_paths):
             with jsonlines.open(file) as reader:
                 for obj in reader:
                     if obj['answer'] == "accept":
-                        image_name = obj['id']
+                        image_name = f"{obj['id']}.jpg"
                         if image_name in ids:
                             continue
                         image_url = obj['image'].split("?")[0]
