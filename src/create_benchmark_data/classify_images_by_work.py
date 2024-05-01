@@ -12,12 +12,15 @@ def add_to_master_dict(work_id, curr_dict):
         master_dict[work_id].append(curr_dict)
 
 
-def classify_by_work(csv_paths):
+def classify_by_work(csv_paths, rare_images):
     for csv_path in csv_paths:
         batch_id = csv_path.stem
         csv_data = get_csv_data(csv_path)
         for row in csv_data[1:]:
             work_id = row[0].split("/")[0]
+            image_name = row[1]
+            if image_name in rare_images:
+                continue
             curr_dict = {
                 "row": row,
                 "batch_id": batch_id,

@@ -3,6 +3,11 @@ import math
 import json
 import requests
 
+def read_json(json_path):
+    with open(json_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    return data
+
 
 def write_json(json_data, json_path):
     with open(json_path, 'w', encoding='utf-8') as outfile:
@@ -33,9 +38,15 @@ def get_csv_data(csv_file_path):
     return data
 
 
-def calculate_splits(n, train_pct=43.5, val_pct=43.5, test_pct=13):
+# def calculate_splits(n, train_pct=43.5, val_pct=43.5, test_pct=13):
+#     """Calculate number of items for each dataset split."""
+#     train_count = math.floor(n * train_pct / 100)
+#     val_count = math.floor(n * val_pct / 100)
+#     test_count = n - train_count - val_count
+#     return train_count, val_count, test_count
+
+def calculate_splits(n, val_pct=40):
     """Calculate number of items for each dataset split."""
-    train_count = math.floor(n * train_pct / 100)
     val_count = math.floor(n * val_pct / 100)
-    test_count = n - train_count - val_count
-    return train_count, val_count, test_count
+    train_count = n - val_count
+    return train_count, val_count
