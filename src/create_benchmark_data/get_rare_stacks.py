@@ -55,7 +55,7 @@ def count_stacks(text):
                 stacks[symbol] = 1    
 
 
-def create_stacks_info(csv_path):
+def create_norbuketaka_stacks_info(csv_path):
     curr_dict = {}
     batch_id = csv_path.stem
     csv_data = get_csv_data(csv_path)
@@ -77,19 +77,12 @@ def create_stacks_info(csv_path):
             curr_dict = {}
 
 
-def get_the_rare_stacks_info():
+def get_the_norbuketaka_rare_stacks_info():
     csv_paths = list(Path(f"./data/csv/norbuketaka/annotations/").iterdir())
     for csv_path in csv_paths:
-        create_stacks_info(csv_path)
+        create_norbuketaka_stacks_info(csv_path)
     write_json(stacks_info, "./data/rare_stack_info.json")
 
 
+    
 
-def main():
-    get_the_rare_stacks_info()
-
-
-
-
-if __name__ == "__main__":
-    main()
