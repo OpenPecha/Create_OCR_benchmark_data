@@ -1,4 +1,5 @@
 import json
+import argparse
 
 from pathlib import Path
 from typing import Dict 
@@ -123,11 +124,18 @@ def get_google_books_stacks_info(csv_dir: Path, output_file:Path = None)->Dict:
         The json file will contain the stack symbol as the key ,
         and the value will be a dictionary with the frequency and the metadata
     """
-    output_file = output_file or Path(f"./data/rare_stack_info.json")
+    output_file = output_file or Path(f"./data/google_books_stack_info.json")
     output_file.parent.mkdir(parents=True, exist_ok=True)
     write_json(stacks_info, output_file)
     return stacks_info
 
 
 if __name__ == "__main__":
-    get_google_books_stacks_info(Path("data"))
+    parser = argparse.ArgumentParser(description="Get stacks from Google Books CSV files")
+    parser.add_argument("csv_dir", type=Path, help="Directory containing CSV files")
+    parser.add_argument("--output_file", type=Path, help="Output file path for the JSON data", default=None)
+
+    args = parser.parse_args()
+    
+    # Call your function with the parsed arguments
+    get_google_books_stacks_info(args.csv_dir, args.output_file)
