@@ -1,9 +1,8 @@
 from pathlib import Path
-from utils import get_csv_data
+from create_benchmark_data.utils import get_csv_data, write_json
 from bosyl.tools import get_bo_symbols
 import json
 from botok import WordTokenizer
-from utils import write_json
 
 
 wt = WordTokenizer()

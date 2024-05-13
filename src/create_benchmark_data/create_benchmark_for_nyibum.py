@@ -1,6 +1,6 @@
 from pathlib import Path
 import csv
-from utils import write_csv, download_and_save_image
+from create_benchmark_data.utils import write_csv, download_and_save_image
 import random
 
 

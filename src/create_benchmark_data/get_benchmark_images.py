@@ -4,7 +4,7 @@ import json
 import random
 import subprocess
 from pathlib import Path
-from utils import write_csv, get_csv_data, write_json, calculate_splits
+from create_benchmark_data.utils import write_csv, get_csv_data, write_json, calculate_splits
         
 
 def split_dataset(stack_dict):

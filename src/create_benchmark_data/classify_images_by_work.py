@@ -1,5 +1,5 @@
 from pathlib import Path
-from utils import get_csv_data
+from create_benchmark_data.utils import get_csv_data
 
 
 master_dict = {}

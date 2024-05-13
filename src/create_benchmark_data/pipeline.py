@@ -4,8 +4,8 @@ import json
 import math
 import subprocess
 from pathlib import Path
-from utils import calculate_splits, write_json, read_json, write_csv
-from classify_images_by_work import classify_by_work
+from create_benchmark_data.utils import calculate_splits, write_json, read_json, write_csv
+from create_benchmark_data.classify_images_by_work import classify_by_work
 
 def get_url_for_norbuketaka(image_name, batch_id):
     return f"https://s3.amazonaws.com/monlam.ai.ocr/norbuketaka/images/{batch_id}/{image_name}"
