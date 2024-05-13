@@ -1,6 +1,4 @@
 from pathlib import Path
-import csv
-import json
 from PIL import Image
 from create_benchmark_data.utils import read_json, get_csv_data, write_csv, write_json
 
