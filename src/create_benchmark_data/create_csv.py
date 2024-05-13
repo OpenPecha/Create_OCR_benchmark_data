@@ -1,8 +1,6 @@
 from pathlib import Path
-import csv
-import json
 from PIL import Image
-from utils import read_json, get_csv_data, write_csv, write_json
+from create_benchmark_data.utils import read_json, get_csv_data, write_csv, write_json
 
 
 def get_print_method_of_work_ids():

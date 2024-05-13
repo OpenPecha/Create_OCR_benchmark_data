@@ -1,6 +1,6 @@
 import csv
 from pathlib import Path
-from utils import write_csv
+from create_benchmark_data.utils import write_csv
 
 
 def get_url_for_norbuketaka(id, batch_id):

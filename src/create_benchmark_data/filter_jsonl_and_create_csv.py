@@ -1,6 +1,6 @@
 import jsonlines
 from pathlib import Path
-from utils import write_csv
+from create_benchmark_data.utils import write_csv
 
 style_dict = {
     0: "others",

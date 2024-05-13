@@ -3,12 +3,12 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "project_name"
+name = "create_benchmark_data"
 version = "0.0.1"
 authors = [
   { name="OpenPecha", email="dev@openpecha.org" },
 ]
-description = "A small example package"
+description = "tool to create OCR benchmark data set"
 readme = "README.md"
 requires-python = ">=3.8"
 classifiers = [
@@ -17,6 +17,13 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
+dependencies = [
+   "botok >= 0.8.12",
+   "pillow >= 10.3.0",
+   "jsonlines >= 4.0.0",
+   "bosyl @ git+https://github.com/OpenPecha/bosyl.git",
+   "tqdm >= 4.66.4",
+]
 
 [project.optional-dependencies]
 dev = [
