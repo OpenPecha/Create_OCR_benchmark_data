@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Dict 
 from bosyl.tools import get_bo_symbols
 from botok import WordTokenizer
+from tqdm import tqdm 
 
 from create_benchmark_data.utils import get_csv_data, write_json
 
@@ -95,7 +96,7 @@ def get_google_books_stacks_info(csv_dir: Path, output_file:Path = None)->Dict:
     csv_paths = list(csv_dir.rglob("*.csv"))
     stacks_info = {}
     
-    for csv_path in csv_paths:
+    for csv_path in tqdm(csv_paths, desc="Getting stacks from google books csv files"):
         csv_data = get_csv_data(csv_path)
         for row in csv_data[1:]:
             work_id, volume_id, page_id = row[0], row[1], row[2]

@@ -21,7 +21,8 @@ dependencies = [
    "botok >= 0.8.12",
    "pillow >= 10.3.0",
    "jsonlines >= 4.0.0",
-   "bosyl @ git+https://github.com/OpenPecha/bosyl.git"
+   "bosyl @ git+https://github.com/OpenPecha/bosyl.git",
+   "tqdm >= 4.66.4",
 ]
 
 [project.optional-dependencies]
