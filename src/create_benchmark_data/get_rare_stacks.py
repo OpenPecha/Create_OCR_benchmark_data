@@ -1,7 +1,7 @@
 import json
 
 from pathlib import Path
-from typing import Any 
+from typing import Dict 
 from bosyl.tools import get_bo_symbols
 from botok import WordTokenizer
 
@@ -90,11 +90,11 @@ def get_the_norbuketaka_rare_stacks_info():
 
     
 
-def get_google_books_stacks_info(csv_dir: Path, output_file:Path = None):
+def get_google_books_stacks_info(csv_dir: Path, output_file:Path = None)->Dict:
     """ Get the stacks from the google books csv files"""
     csv_paths = list(csv_dir.rglob("*.csv"))
     stacks_info = {}
-
+    
     for csv_path in csv_paths:
         csv_data = get_csv_data(csv_path)
         for row in csv_data[1:]:
@@ -125,6 +125,7 @@ def get_google_books_stacks_info(csv_dir: Path, output_file:Path = None):
     output_file = output_file or Path(f"./data/rare_stack_info.json")
     output_file.parent.mkdir(parents=True, exist_ok=True)
     write_json(stacks_info, output_file)
+    return stacks_info
 
 
 if __name__ == "__main__":
